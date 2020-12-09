@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>simplicity Test icons</title>
+		<link rel="stylesheet" href="css/simplicity.css">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+				box-sizing: border-box;
+			}
+
+			body {
+				background-color: #555;
+				text-align: center;
+			}
+
+			ul {
+				width: 80%;
+				display: flex;
+				flex-wrap: wrap;
+				margin: 50px auto 0;
+			}
+
+			li {
+				margin: 10px;
+				border: 1px solid #666;
+				padding: 20px;
+				position: relative;
+				cursor: pointer;
+			}
+
+			li:before,
+			li:after {
+				content: "";
+				background-color: rgba(255, 109, 140, 0.5);
+				position: absolute;
+				display: block;
+				left: 0;
+				bottom: 0;
+				right: 0;
+				top: 0;
+				margin: auto;
+			}
+
+			li:after {
+				width: 100%;
+				height: 1px;
+			}
+
+			li:before {
+				height: 100%;
+				width: 1px;
+			}
+
+			li i[class*="simplicity"] {
+				color: #bbb;
+				transition: all 0.2s;
+				position: relative;
+				z-index: 1;
+			}
+
+			li:hover i {
+				color: #fff;
+			}
+			span{
+				color: #52c41a;
+				background-color: #f6ffed;
+				position: fixed;
+				left: 50%;
+				top: 10px;
+				transform: translateX(-50%);
+				font-size: 12px;
+				line-height: 20px;
+				padding: 0 7px;
+				border-radius: 4px;
+				border: 1px solid #b7eb8f;
+				display: none;
+			}
+			input{
+				opacity: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<ul>
+			<li><i class="simplicity-textAlignRight"></i></li>
+			<li><i class="simplicity-textAlignCenter"></i></li>
+			<li><i class="simplicity-textAlignLeft"></i></li>
+			<li><i class="simplicity-textIndent"></i></li>
+			<li><i class="simplicity-textOutdent"></i></li>
+			<li><i class="simplicity-pin"></i></li>
+			<li><i class="simplicity-locationArrow"></i></li>
+			<li><i class="simplicity-sync"></i></li>
+			<li><i class="simplicity-reset"></i></li>
+			<li><i class="simplicity-share"></i></li>
+			<li><i class="simplicity-search"></i></li>
+			<li><i class="simplicity-home"></i></li>
+			<li><i class="simplicity-bars"></i></li>
+			<li><i class="simplicity-ellipsis"></i></li>
+			<li><i class="simplicity-tiles"></i></li>
+			<li><i class="simplicity-list"></i></li>
+			<li><i class="simplicity-smile"></i></li>
+			<li><i class="simplicity-frown"></i></li>
+			<li><i class="simplicity-meh"></i></li>
+			<li><i class="simplicity-volume"></i></li>
+			<li><i class="simplicity-volumeLow"></i></li>
+			<li><i class="simplicity-volumeMedium"></i></li>
+			<li><i class="simplicity-volumeHigh"></i></li>
+			<li><i class="simplicity-volumeDecrease"></i></li>
+			<li><i class="simplicity-volumeIncrease"></i></li>
+			<li><i class="simplicity-volumeMute"></i></li>
+			<li><i class="simplicity-play"></i></li>
+			<li><i class="simplicity-pause"></i></li>
+			<li><i class="simplicity-stop"></i></li>
+			<li><i class="simplicity-rewind"></i></li>
+			<li><i class="simplicity-forward"></i></li>
+			<li><i class="simplicity-next"></i></li>
+			<li><i class="simplicity-previous"></i></li>
+			<li><i class="simplicity-rightArrow"></i></li>
+			<li><i class="simplicity-leftArrow"></i></li>
+			<li><i class="simplicity-upArrow"></i></li>
+			<li><i class="simplicity-downArrow"></i></li>
+			<li><i class="simplicity-check"></i></li>
+			<li><i class="simplicity-checkCircle"></i></li>
+			<li><i class="simplicity-cross"></i></li>
+			<li><i class="simplicity-crossCircle"></i></li>
+			<li><i class="simplicity-plus"></i></li>
+			<li><i class="simplicity-plusCircle"></i></li>
+			<li><i class="simplicity-caretRight"></i></li>
+			<li><i class="simplicity-caretLeft"></i></li>
+			<li><i class="simplicity-caretUp"></i></li>
+			<li><i class="simplicity-caretDown"></i></li>
+			<li><i class="simplicity-caretRightCircle"></i></li>
+			<li><i class="simplicity-caretLeftCircle"></i></li>
+			<li><i class="simplicity-caretUpCircle"></i></li>
+			<li><i class="simplicity-caretDownCircle"></i></li>
+			<li><i class="simplicity-caretRightSquare"></i></li>
+			<li><i class="simplicity-caretLeftSquare"></i></li>
+			<li><i class="simplicity-caretUpSquare"></i></li>
+			<li><i class="simplicity-caretDownSquare"></i></li>
+		</ul>
+		<!-- 暂存icon类名 -->
+		<input type="text" value="" />
+		<span></span>
+		
+		
+		<script type="text/javascript">
+			function copyText(text) {
+				const input = document.querySelector('input')
+				const span = document.querySelector('span')
+				input.value = text
+				input.select()
+				span.innerText = text
+				span.style.display = 'block'
+				document.execCommand('copy')
+				setTimeout(() => {
+					span.style.display = 'none'
+				}, 1000)
+			}
+			
+			const lis = document.querySelectorAll('li')
+			lis.forEach(dom => {
+				dom.onclick = function(){
+					const text = this.children[0].outerHTML
+					copyText(text)
+				}
+			})
+		</script>
+	</body>
+</html>
